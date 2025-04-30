@@ -412,7 +412,7 @@ export default function WeddingLandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={storyInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
-            className="font-serif text-3xl md:text-4xl mb-12 text-center text-rose-400"
+            className="font-serif text-2xl md:text-4xl mb-12 text-center text-rose-400"
           >
             ON BEHALF OF
           </motion.h2>
@@ -542,39 +542,6 @@ export default function WeddingLandingPage() {
               <EventTimeline />
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={
-                detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-              }
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className=" rounded-lg text-center"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16  rounded-full">
-                <MapPin className="h-8 w-8 text-rose-400" />
-              </div>
-              {/* <h3 className="font-sans text-2xl  text-gray-800">สถานที่</h3> */}
-              <p className="text-gray-600 text-xl">
-                หอประชุมโรงเรียนสามชุกรัตนโภคาราม
-              </p>
-              <p className="text-gray-600 text-xl mb-6">
-                ต.สามชุก อ.สามชุก จ.สุพรรณบุรี
-              </p>
-
-              {/* Google Maps Embed */}
-              <div className="w-full aspect-video rounded-lg overflow-hidden shadow">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.3336287480047!2d100.09106140000002!3d14.750224200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2263ab4bcded3%3A0x6f4925e16baed9f8!2z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4Liq4Liy4Lih4LiK4Li44LiB4Lij4Lix4LiV4LiZ4LmC4Lig4LiE4Liy4Lij4Liy4Lih!5e0!3m2!1sth!2sth!4v1745997599102!5m2!1sth!2sth"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </motion.div>
 
             {/* <motion.div
               initial={{ opacity: 0, y: 30 }}

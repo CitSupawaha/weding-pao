@@ -166,6 +166,14 @@ export function EventTimeline() {
           </div>
         </div>
       </div>
+      <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-2xl md:text-5xl font-serif text-gray-800 mt-12 mb-6"
+        >
+          # LOCATION
+        </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -173,9 +181,10 @@ export function EventTimeline() {
         whileHover={{ y: -10, transition: { duration: 0.2 } }}
         className=" rounded-lg text-center mt-6"
       >
-        <div className="inline-flex items-center justify-center w-16 h-16  rounded-full">
+        {/* <div className="inline-flex items-center justify-center w-16 h-16  rounded-full">
           <MapPin className="h-8 w-8 text-rose-400" />
-        </div>
+        </div> */}
+
         {/* <h3 className="font-sans text-2xl  text-gray-800">สถานที่</h3> */}
         <p className="text-gray-600 text-xl">
           หอประชุมโรงเรียนสามชุกรัตนโภคาราม
@@ -185,7 +194,7 @@ export function EventTimeline() {
         </p>
 
         {/* Google Maps Embed */}
-        <div className="w-full aspect-video rounded-lg overflow-hidden shadow">
+        <div className="w-full h-[400px]  overflow-hidden shadow  ">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.3336287480047!2d100.09106140000002!3d14.750224200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2263ab4bcded3%3A0x6f4925e16baed9f8!2z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4Liq4Liy4Lih4LiK4Li44LiB4Lij4Lix4LiV4LiZ4LmC4Lig4LiE4Liy4Lij4Liy4Lih!5e0!3m2!1sth!2sth!4v1745997599102!5m2!1sth!2sth"
             width="100%"

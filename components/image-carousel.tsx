@@ -105,7 +105,7 @@ export function ImageCarousel() {
             src={images[currentIndex] || "/placeholder.svg"}
             alt={`Wedding gallery image ${currentIndex + 1}`}
             fill
-            className=""
+            className="object-cover object-center"
             priority
           />
         </motion.div>

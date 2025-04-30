@@ -20,6 +20,7 @@ import { SparkleHearts } from "@/components/sparkle-hearts";
 import { FaHeart } from "react-icons/fa";
 import { ImageCarousel } from "@/components/image-carousel";
 import { EventTimeline } from "@/components/evene-timeline";
+import PreWeddingGrid from "@/components/grid-images";
 
 export default function WeddingLandingPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -630,11 +631,11 @@ export default function WeddingLandingPage() {
               galleryInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.6 }}
-            className="font-sans text-3xl md:text-4xl mb-12 text-center text-gray-800"
+            className="font-serif text-3xl md:text-4xl mb-12 text-center text-rose-300"
           >
-            แกลเลอรี่
+            WE HOPE TO SEE YOU ON OUR SPECIAL DAY
           </motion.h2>
-
+          <PreWeddingGrid />
           <ImageCarousel />
         </div>
       </section>

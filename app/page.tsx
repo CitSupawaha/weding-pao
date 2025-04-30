@@ -396,7 +396,7 @@ export default function WeddingLandingPage() {
                   </span>
                 </div>
                 <span className="text-sm font-sans uppercase tracking-wider text-muted-foreground">
-                 Seconds
+                  Seconds
                 </span>
               </motion.div>
             </div>
@@ -431,7 +431,7 @@ export default function WeddingLandingPage() {
                 className="rounded-lg shadow-lg"
               />
             </motion.div> */}
-  
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={
@@ -439,20 +439,30 @@ export default function WeddingLandingPage() {
               }
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3 className="font-serif text-md mb-4 text-gray-800 text-center">BRIDE'S PARENTS</h3>
+              <h3 className="font-serif text-md mb-4 text-gray-800 text-center">
+                BRIDE'S PARENTS
+              </h3>
               <p className="text-gray-600 text-center text-xl">
-              พ.ต.อ.อาญ ปิ่นทอง (พ่อ)
+                พ.ต.อ.อาญ ปิ่นทอง (พ่อ)
               </p>
-              <p  className="text-gray-600 text-center text-xl" >นางประนาถรา ปิ่นทอง (แม่)</p>
+              <p className="text-gray-600 text-center text-xl">
+                นางประนาถรา ปิ่นทอง (แม่)
+              </p>
               <h3 className="font-serif text-2xl mb-4 text-gray-800 text-center">
                 &
               </h3>
-              <h3 className="font-serif  mb-4 text-gray-800 text-center text-md mb-6">GROOM'S PARENTS</h3>
+              <h3 className="font-serif  mb-4 text-gray-800 text-center text-md mb-6">
+                GROOM'S PARENTS
+              </h3>
               <p className="text-gray-600 text-center text-xl">
-              นายสมบท โคตรเพชร (พ่อ)
+                นายสมบท โคตรเพชร (พ่อ)
               </p>
-              <p  className="text-gray-600 text-center mb-6 text-xl" >นางบุลภา โคตรเพชร (แม่)</p>
-              <h3 className="font-serif  mb-4 text-gray-800 text-center text-md">REQUESR THE HONOR OF YOUR PRESENCE TO CELEBRATE THE MARRIAGE OF</h3>
+              <p className="text-gray-600 text-center mb-6 text-xl">
+                นางบุลภา โคตรเพชร (แม่)
+              </p>
+              <h3 className="font-serif  mb-4 text-gray-800 text-center text-md">
+                REQUESR THE HONOR OF YOUR PRESENCE TO CELEBRATE THE MARRIAGE OF
+              </h3>
               <p className="text-gray-600 text-center text-xl">
                 มีความยินดีขอเรียนเชิญท่านเพื่อเป็นเกียรติในงานเลี้ยงฉลองมงคลสมรส
                 ระหว่าง นางสาวเพียงอัมพร ปิ่นทอง (มาร์ช) และ นายกวินวีร์
@@ -520,15 +530,16 @@ export default function WeddingLandingPage() {
               </div>
             </motion.div> */}
 
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-12"
-          >
-            <EventTimeline />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-12"
+            >
+              <EventTimeline />
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -537,43 +548,34 @@ export default function WeddingLandingPage() {
               }
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="bg-[#faf7f5] p-8 rounded-lg text-center shadow-md"
+              className=" rounded-lg text-center"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-full mb-6">
-                <MapPin className="h-8 w-8 text-rose-600" />
+              <div className="inline-flex items-center justify-center w-16 h-16  rounded-full">
+                <MapPin className="h-8 w-8 text-rose-400" />
               </div>
-              <h3 className="font-sans text-2xl mb-4 text-gray-800">สถานที่</h3>
-              <p className="text-gray-600 mb-2">
-                หอประชุมโรงเรียนสามบุรีวิทยาคาร
+              {/* <h3 className="font-sans text-2xl  text-gray-800">สถานที่</h3> */}
+              <p className="text-gray-600 text-xl">
+                หอประชุมโรงเรียนสามชุกรัตนโภคาราม
               </p>
-              <p className="text-gray-600 mb-4">
-                ต.สามบุก อ.สามบุก จ.สุพรรณบุรี
+              <p className="text-gray-600 text-xl mb-6">
+                ต.สามชุก อ.สามชุก จ.สุพรรณบุรี
               </p>
-              <a
-                href="https://maps.app.goo.gl/KXnxKvWR4SK3Phso6?g_st=com.google.maps.preview.copy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 text-rose-600 hover:underline"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-                <span>ดูแผนที่</span>
-              </a>
+
+              {/* Google Maps Embed */}
+              <div className="w-full aspect-video rounded-lg overflow-hidden shadow">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.3336287480047!2d100.09106140000002!3d14.750224200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2263ab4bcded3%3A0x6f4925e16baed9f8!2z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4Liq4Liy4Lih4LiK4Li44LiB4Lij4Lix4LiV4LiZ4LmC4Lig4LiE4Liy4Lij4Liy4Lih!5e0!3m2!1sth!2sth!4v1745997599102!5m2!1sth!2sth"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={
                 detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
@@ -614,7 +616,7 @@ export default function WeddingLandingPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>

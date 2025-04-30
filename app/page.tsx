@@ -18,6 +18,7 @@ import { FloatingHearts } from "@/components/floating-hearts";
 import { GradientHearts } from "@/components/gradient-hearts";
 import { SparkleHearts } from "@/components/sparkle-hearts";
 import { FaHeart } from "react-icons/fa";
+import { ImageCarousel } from "@/components/image-carousel";
 
 export default function WeddingLandingPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -554,7 +555,7 @@ export default function WeddingLandingPage() {
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  /> 
+                  />
                 </svg>
                 <span>ดูแผนที่</span>
               </a>
@@ -606,7 +607,7 @@ export default function WeddingLandingPage() {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Gallery Section - Carousel */}
       <section id="gallery" ref={galleryRef} className="py-20 bg-[#faf7f5]">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -619,41 +620,8 @@ export default function WeddingLandingPage() {
           >
             แกลเลอรี่
           </motion.h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={
-                  galleryInView
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 0, scale: 0.8 }
-                }
-                transition={{ duration: 0.5, delay: item * 0.1 }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                className="relative aspect-square overflow-hidden rounded-lg shadow-md"
-              >
-                <Image
-                  src={`/images/weding1.jpg?height=400&width=400&text=Photo+${item}`}
-                  alt={`Gallery image ${item}`}
-                  fill
-                  className="object-cover hover:scale-105 transition duration-300"
-                />
-              </motion.div>
-            ))}
-          </div>
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              galleryInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center mt-10"
-          >
-            <Button className="bg-rose-600 hover:bg-rose-700 text-white">
-              ดูรูปเพิ่มเติม
-            </Button>
-          </motion.div> */}
+
+          <ImageCarousel />
         </div>
       </section>
 

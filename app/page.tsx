@@ -777,7 +777,7 @@ export default function WeddingLandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 bg-gray-800 text-white">
+      {/* <footer className="py-10 bg-gray-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -831,7 +831,7 @@ export default function WeddingLandingPage() {
             ด้วยความรัก © {new Date().getFullYear()}
           </motion.p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

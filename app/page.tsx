@@ -19,6 +19,7 @@ import { GradientHearts } from "@/components/gradient-hearts";
 import { SparkleHearts } from "@/components/sparkle-hearts";
 import { FaHeart } from "react-icons/fa";
 import { ImageCarousel } from "@/components/image-carousel";
+import { EventTimeline } from "@/components/evene-timeline";
 
 export default function WeddingLandingPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -297,7 +298,7 @@ export default function WeddingLandingPage() {
               opacity: 1,
               transition: { duration: 1, delay: 1.2 },
             }}
-            className="text-xl md:text-xl mb-8 font-light text-rose-100"
+            className="text-xl md:text-xl mb-8 font-eng text-rose-100"
           >
             25.05.2025
           </motion.p>
@@ -325,9 +326,9 @@ export default function WeddingLandingPage() {
           >
             <motion.h2
               variants={fadeIn}
-              className="font-sans text-2xl md:text-4xl mb-12 text-rose-400"
+              className="font-serif  text-2xl md:text-4xl mb-12 text-rose-400"
             >
-              นับถอยหลังสู่วันพิเศษของเรา
+              TIME IS TICKING
             </motion.h2>
             <div className="flex flex-wrap justify-center gap-4 md:gap-8">
               <motion.div
@@ -339,12 +340,12 @@ export default function WeddingLandingPage() {
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-lg shadow-md flex items-center justify-center mb-2">
-                  <span className="text-3xl md:text-4xl font-bold text-rose-200">
+                  <span className="text-3xl font-eng md:text-4xl font-bold text-rose-200">
                     {countdown.days}
                   </span>
                 </div>
-                <span className="text-sm uppercase tracking-wider text-muted-foreground">
-                  วัน
+                <span className="text-sm font-sans uppercase tracking-wider text-muted-foreground">
+                  Days
                 </span>
               </motion.div>
               <motion.div
@@ -356,12 +357,12 @@ export default function WeddingLandingPage() {
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24  bg-white  rounded-lg shadow-md flex items-center justify-center mb-2">
-                  <span className="text-3xl md:text-4xl font-bold text-rose-200">
+                  <span className="text-3xl md:text-4xl font-eng font-bold text-rose-200">
                     {countdown.hours}
                   </span>
                 </div>
-                <span className="text-sm uppercase tracking-wider text-muted-foreground">
-                  ชั่วโมง
+                <span className="text-sm uppercase font-eng font-sans tracking-wider text-muted-foreground">
+                  Hours
                 </span>
               </motion.div>
               <motion.div
@@ -373,12 +374,12 @@ export default function WeddingLandingPage() {
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-lg shadow-md flex items-center justify-center mb-2">
-                  <span className="text-3xl md:text-4xl font-bold text-rose-200">
+                  <span className="text-3xl md:text-4xl font-eng font-bold text-rose-200">
                     {countdown.minutes}
                   </span>
                 </div>
-                <span className="text-sm uppercase tracking-wider text-muted-foreground">
-                  นาที
+                <span className="text-sm font-sans uppercase tracking-wider text-muted-foreground">
+                  Minutes
                 </span>
               </motion.div>
               <motion.div
@@ -390,12 +391,12 @@ export default function WeddingLandingPage() {
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white  rounded-lg shadow-md flex items-center justify-center mb-2">
-                  <span className="text-3xl md:text-4xl font-bold text-rose-200">
+                  <span className="text-3xl md:text-4xl font-bold text-rose-200 font-eng">
                     {countdown.seconds}
                   </span>
                 </div>
-                <span className="text-sm uppercase tracking-wider text-muted-foreground">
-                  วินาที
+                <span className="text-sm font-sans uppercase tracking-wider text-muted-foreground">
+                 Seconds
                 </span>
               </motion.div>
             </div>
@@ -410,12 +411,12 @@ export default function WeddingLandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={storyInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
-            className="font-sans text-3xl md:text-4xl mb-12 text-center text-rose-400"
+            className="font-serif text-3xl md:text-4xl mb-12 text-center text-rose-400"
           >
-            เรื่องราวของเรา
+            ON BEHALF OF
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={
                 storyInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
@@ -429,7 +430,8 @@ export default function WeddingLandingPage() {
                 height={600}
                 className="rounded-lg shadow-lg"
               />
-            </motion.div>
+            </motion.div> */}
+  
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={
@@ -437,24 +439,24 @@ export default function WeddingLandingPage() {
               }
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3 className="font-sans text-2xl mb-4 text-gray-800">เจ้าสาว</h3>
-              <p className="text-gray-600 mb-6">
-                นางสาวเพียงอัมพร ปิ่นทอง (มาร์ช)
-                <br />
-                บุตรีของ พ.ต.อ.อาญ ปิ่นทอง และ นางประนาถรา ปิ่นทอง
+              <h3 className="font-serif text-md mb-4 text-gray-800 text-center">BRIDE'S PARENTS</h3>
+              <p className="text-gray-600 text-center text-xl">
+              พ.ต.อ.อาญ ปิ่นทอง (พ่อ)
               </p>
-              <h3 className="font-sans text-2xl mb-4 text-gray-800">
-                เจ้าบ่าว
+              <p  className="text-gray-600 text-center text-xl" >นางประนาถรา ปิ่นทอง (แม่)</p>
+              <h3 className="font-serif text-2xl mb-4 text-gray-800 text-center">
+                &
               </h3>
-              <p className="text-gray-600 mb-6">
-                นายกวินวีร์ โคตรเพชร (เปา)
-                <br />
-                บุตรของ นายสมบท โคตรเพชร และ นางบุลภา โคตรเพชร
+              <h3 className="font-serif  mb-4 text-gray-800 text-center text-md mb-6">GROOM'S PARENTS</h3>
+              <p className="text-gray-600 text-center text-xl">
+              นายสมบท โคตรเพชร (พ่อ)
               </p>
-              <p className="text-gray-600 italic">
-                "มีความยินดีขอเรียนเชิญท่านเพื่อเป็นเกียรติในงานเลี้ยงฉลองมงคลสมรส
+              <p  className="text-gray-600 text-center mb-6 text-xl" >นางบุลภา โคตรเพชร (แม่)</p>
+              <h3 className="font-serif  mb-4 text-gray-800 text-center text-md">REQUESR THE HONOR OF YOUR PRESENCE TO CELEBRATE THE MARRIAGE OF</h3>
+              <p className="text-gray-600 text-center text-xl">
+                มีความยินดีขอเรียนเชิญท่านเพื่อเป็นเกียรติในงานเลี้ยงฉลองมงคลสมรส
                 ระหว่าง นางสาวเพียงอัมพร ปิ่นทอง (มาร์ช) และ นายกวินวีร์
-                โคตรเพชร (เปา)"
+                โคตรเพชร (เปา)
               </p>
             </motion.div>
           </div>
@@ -464,7 +466,7 @@ export default function WeddingLandingPage() {
       {/* Event Details Section */}
       <section id="details" ref={detailsRef} className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <motion.h2
+          {/* <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={
               detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
@@ -473,9 +475,9 @@ export default function WeddingLandingPage() {
             className="font-sans text-3xl md:text-4xl mb-12 text-center text-gray-800"
           >
             รายละเอียดงาน
-          </motion.h2>
+          </motion.h2> */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={
                 detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
@@ -516,7 +518,17 @@ export default function WeddingLandingPage() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-12"
+          >
+            <EventTimeline />
+          </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}

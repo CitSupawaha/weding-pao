@@ -19,7 +19,6 @@ export function ImageCarousel() {
     "/images/Prewedding-283.jpg?height=1200&width=800&text=Wedding+Photo+5",
     "/images/Prewedding-306.jpg?height=1200&width=800&text=Wedding+Photo+6",
     "/images/Prewedding-344.jpg?height=1200&width=800&text=Wedding+Photo+7",
-    "/images/Prewedding-196.jpg?height=1200&width=800&text=Wedding+Photo+8",
   ]
 
   const variants = {
@@ -73,7 +72,7 @@ export function ImageCarousel() {
 
   return (
     <div
-      className="relative overflow-hidden  mx-auto max-w-4xl aspect-[16/9] h-[60vh] w-full"
+      className="relative overflow-hidden  mx-auto max-w-4xl aspect-[16/9] h-[65vh] w-full"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -113,7 +112,7 @@ export function ImageCarousel() {
       </AnimatePresence>
 
       {/* Navigation arrows */}
-      <button
+      {/* <button
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 rounded-full p-2 z-10 transition-all duration-200"
         onClick={() => paginate(-1)}
         aria-label="Previous image"
@@ -127,7 +126,7 @@ export function ImageCarousel() {
         aria-label="Next image"
       >
         <ChevronRight className="h-6 w-6 text-gray-800" />
-      </button>
+      </button> */}
 
       {/* Dots indicator */}
       <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">

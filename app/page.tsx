@@ -310,7 +310,6 @@ export default function WeddingLandingPage() {
           >
             P A O <FaHeart className="mx-2 text-rose-100" /> M A R C H .
           </motion.div>
-          
         </motion.div>
       </section>
 
@@ -335,13 +334,12 @@ export default function WeddingLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                
                 }}
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-lg shadow-md flex items-center justify-center mb-2">
                   <span className="text-3xl md:text-4xl font-bold text-rose-200">
-                  {countdown.days}
+                    {countdown.days}
                   </span>
                 </div>
                 <span className="text-sm uppercase tracking-wider text-muted-foreground">
@@ -353,13 +351,12 @@ export default function WeddingLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                
                 }}
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24  bg-white  rounded-lg shadow-md flex items-center justify-center mb-2">
                   <span className="text-3xl md:text-4xl font-bold text-rose-200">
-                  {countdown.hours}
+                    {countdown.hours}
                   </span>
                 </div>
                 <span className="text-sm uppercase tracking-wider text-muted-foreground">
@@ -371,13 +368,12 @@ export default function WeddingLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                
                 }}
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-lg shadow-md flex items-center justify-center mb-2">
                   <span className="text-3xl md:text-4xl font-bold text-rose-200">
-                  {countdown.minutes}
+                    {countdown.minutes}
                   </span>
                 </div>
                 <span className="text-sm uppercase tracking-wider text-muted-foreground">
@@ -389,20 +385,18 @@ export default function WeddingLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                
                 }}
                 className="flex flex-col items-center"
               >
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white  rounded-lg shadow-md flex items-center justify-center mb-2">
                   <span className="text-3xl md:text-4xl font-bold text-rose-200">
-                  {countdown.seconds}
+                    {countdown.seconds}
                   </span>
                 </div>
                 <span className="text-sm uppercase tracking-wider text-muted-foreground">
-                 วินาที
+                  วินาที
                 </span>
               </motion.div>
-             
             </div>
           </motion.div>
         </div>
@@ -502,11 +496,11 @@ export default function WeddingLandingPage() {
               <div className="grid grid-cols-2 gap-2 mt-4">
                 <div className="bg-rose-50 p-2 rounded">
                   <p className="text-rose-600 font-bold">07:29 น.</p>
-                  <p className="text-gray-600 text-sm">พิธีหมั้น</p>
+                  <p className="text-gray-600 text-sm">พิธีสงฆ์</p>
                 </div>
                 <div className="bg-rose-50 p-2 rounded">
                   <p className="text-rose-600 font-bold">08:29 น.</p>
-                  <p className="text-gray-600 text-sm">พิธีบ่าวสาว</p>
+                  <p className="text-gray-600 text-sm">พิธีขันหมาก</p>
                 </div>
                 <div className="bg-rose-50 p-2 rounded">
                   <p className="text-rose-600 font-bold">09:29 น.</p>
@@ -516,7 +510,9 @@ export default function WeddingLandingPage() {
                 </div>
                 <div className="bg-rose-50 p-2 rounded">
                   <p className="text-rose-600 font-bold">11:30 น.</p>
-                  <p className="text-gray-600 text-sm">งานเลี้ยงฉลองมงคลสมรส</p>
+                  <p className="text-gray-600 text-sm">
+                    ขอเชิญร่วมรับประทานอาหาร (โต๊ะจีน)
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -540,7 +536,12 @@ export default function WeddingLandingPage() {
               <p className="text-gray-600 mb-4">
                 ต.สามบุก อ.สามบุก จ.สุพรรณบุรี
               </p>
-              <div className="flex items-center justify-center gap-2 text-rose-600">
+              <a
+                href="https://maps.app.goo.gl/KXnxKvWR4SK3Phso6?g_st=com.google.maps.preview.copy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-rose-600 hover:underline"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -553,10 +554,10 @@ export default function WeddingLandingPage() {
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
+                  /> 
                 </svg>
                 <span>ดูแผนที่</span>
-              </div>
+              </a>
             </motion.div>
 
             <motion.div

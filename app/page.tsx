@@ -756,14 +756,23 @@ export default function WeddingLandingPage() {
       {/* Footer */}
       <footer className="py-10 bg-gray-800 text-white">
         <div className="container mx-auto px-4 text-center">
+        <div className="flex justify-center">
+              <Image
+                src="/images/logo3.png"
+                alt="Timeline"
+                width={60}
+                height={60}
+              />
+            </div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
               transition: { duration: 1, delay: 1.6 },
             }}
-            className="text-xl md:text-xl font-serif mb-2 flex items-center justify-center text-gray-100"
+            className="text-sm md:text-xl font-serif mb-2 flex items-center justify-center text-gray-100"
           >
+       
             P A O <FaHeart className="mx-2 text-rose-100" /> M A R C H .
           </motion.div>
           <motion.p

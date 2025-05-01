@@ -12,13 +12,13 @@ export function ImageCarousel() {
 
   // Images array - replace with your actual images
   const images = [
-    "/images/Prewedding-243.jpg?height=1200&width=800&text=Wedding+Photo+1",
-    "/images/Prewedding-72.jpg?height=1200&width=800&text=Wedding+Photo+2",
-    "/images/Prewedding-232.jpg?height=1200&width=800&text=Wedding+Photo+3",
-    "/images/Prewedding-279.jpg?height=1200&width=800&text=Wedding+Photo+4",
-    "/images/Prewedding-283.jpg?height=1200&width=800&text=Wedding+Photo+5",
-    "/images/Prewedding-306.jpg?height=1200&width=800&text=Wedding+Photo+6",
-    "/images/Prewedding-344.jpg?height=1200&width=800&text=Wedding+Photo+7",
+    "/images/Prewedding-232.jpg?height=1200&width=800&text=Wedding+Photo+1",
+    "/images/Prewedding-235.jpg?height=1200&width=800&text=Wedding+Photo+2",
+    "/images/Prewedding-243.jpg?height=1200&width=800&text=Wedding+Photo+3",
+    "/images/Prewedding-247.jpg?height=1200&width=800&text=Wedding+Photo+4",
+    "/images/Prewedding-275.jpg?height=1200&width=800&text=Wedding+Photo+5",
+    "/images/Prewedding-283.jpg?height=1200&width=800&text=Wedding+Photo+6",
+    "/images/Prewedding-342.jpg?height=1200&width=800&text=Wedding+Photo+7",
   ]
 
   const variants = {

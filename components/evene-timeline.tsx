@@ -35,7 +35,7 @@ export function EventTimeline() {
               </p>
             </div>
             <div className="absolute left-1/2 w-3 h-3 bg-white border-2 border-gray-400 rounded-full transform -translate-x-1/2"></div>
-            <div className="w-1/2 pl-10">
+            <div className="w-1/2 pl-8">
               <Image
                 src="/timeline_1.svg"
                 alt="Timeline"

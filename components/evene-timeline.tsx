@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function EventTimeline() {
   return (
-    <div className="max-w-3xl mx-auto py-8 px-4">
+    <div className="max-w-4xl mx-auto py-8 px-4">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -73,34 +73,22 @@ export default function WeddingLandingPage() {
   }, []);
 
   // Toggle music play/pause
-  const toggleMusic = async () => {
-    if (!audioRef.current || !audioReady) return;
-
-    try {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        // Use the play() Promise API with proper error handling
-        const playPromise = audioRef.current.play();
-
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setIsPlaying(true);
-            })
-            .catch((error) => {
-              console.error("Playback error:", error);
-              // If autoplay is prevented, we should keep isPlaying as false
-              setIsPlaying(false);
-            });
-        }
-      }
-    } catch (error) {
-      console.error("Audio control error:", error);
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+  
+    if (isPlaying) {
+      audioRef.current.pause();
       setIsPlaying(false);
+    } else {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.warn("Autoplay prevented", err);
+        });
     }
   };
+  
 
   // Calculate countdown
   useEffect(() => {
@@ -185,23 +173,15 @@ export default function WeddingLandingPage() {
       <SparkleHearts />
 
       {/* Audio Element */}
-      {/* <div className="">
-        <iframe
-          width="100"
-          height="100"
-          src="https://www.youtube.com/embed/9IgndnSZ8HQ?autoplay=1&loop=1&playlist=9IgndnSZ8HQ"
-          title="Wedding Music"
-          frameBorder="0"
-          allow="autoplay"
-        ></iframe>
-      </div> */}
+      <audio ref={audioRef} src="/music.mp3" autoPlay loop preload="auto" />
+
 
       {/* Music Control Button */}
       <button
         onClick={toggleMusic}
         className="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-rose-50 transition-all duration-300"
         aria-label={isPlaying ? "Pause music" : "Play music"}
-        disabled={!audioReady}
+        disabled={false}
       >
         {isPlaying ? (
           <PauseCircle className="h-8 w-8 text-rose-300" />
@@ -209,11 +189,6 @@ export default function WeddingLandingPage() {
           <div className="relative">
             <PlayCircle className="h-8 w-8 text-rose-300" />
 
-            <motion.div
-              animate={heartbeat}
-              className="absolute inset-0 bg-rose-100 rounded-full -z-10"
-              style={{ opacity: 0.5 }}
-            ></motion.div>
           </div>
         )}
       </button>
@@ -443,7 +418,7 @@ export default function WeddingLandingPage() {
           >
             ON BEHALF OF
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-1 gap-12 items-center max-w-5xl mx-auto">
             {/* <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={
@@ -504,60 +479,7 @@ export default function WeddingLandingPage() {
       {/* Event Details Section */}
       <section id="details" ref={detailsRef} className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          {/* <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6 }}
-            className="font-sans text-3xl md:text-4xl mb-12 text-center text-gray-800"
-          >
-            รายละเอียดงาน
-          </motion.h2> */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={
-                detailsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-              }
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="bg-[#faf7f5] p-8 rounded-lg text-center shadow-md"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-full mb-6">
-                <Calendar className="h-8 w-8 text-rose-600" />
-              </div>
-              <h3 className="font-sans text-2xl mb-4 text-gray-800">
-                วันและเวลา
-              </h3>
-              <p className="text-gray-600 mb-2">
-                วันอาทิตย์ที่ 25 พฤษภาคม 2568
-              </p>
-              <p className="text-gray-600 mb-2">(ตรงกับแรม 14 ค่ำ เดือน 6)</p>
-              <div className="grid grid-cols-2 gap-2 mt-4">
-                <div className="bg-rose-50 p-2 rounded">
-                  <p className="text-rose-600 font-bold">07:29 น.</p>
-                  <p className="text-gray-600 text-sm">พิธีสงฆ์</p>
-                </div>
-                <div className="bg-rose-50 p-2 rounded">
-                  <p className="text-rose-600 font-bold">08:29 น.</p>
-                  <p className="text-gray-600 text-sm">พิธีขันหมาก</p>
-                </div>
-                <div className="bg-rose-50 p-2 rounded">
-                  <p className="text-rose-600 font-bold">09:29 น.</p>
-                  <p className="text-gray-600 text-sm">
-                    พิธีหลั่งน้ำพระพุทธมนต์
-                  </p>
-                </div>
-                <div className="bg-rose-50 p-2 rounded">
-                  <p className="text-rose-600 font-bold">11:30 น.</p>
-                  <p className="text-gray-600 text-sm">
-                    ขอเชิญร่วมรับประทานอาหาร (โต๊ะจีน)
-                  </p>
-                </div>
-              </div>
-            </motion.div> */}
-
+          <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={
@@ -644,7 +566,7 @@ export default function WeddingLandingPage() {
             </p>
 
             {/* Google Maps Embed */}
-            <div className="w-full h-[400px]  overflow-hidden shadow  ">
+            <div className="w-full h-[400px] md:h-[600px]  overflow-hidden shadow  ">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.3336287480047!2d100.09106140000002!3d14.750224200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2263ab4bcded3%3A0x6f4925e16baed9f8!2z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4Liq4Liy4Lih4LiK4Li44LiB4Lij4Lix4LiV4LiZ4LmC4Lig4LiE4Liy4Lij4Liy4Lih!5e0!3m2!1sth!2sth!4v1745997599102!5m2!1sth!2sth"
                 width="100%"
@@ -710,7 +632,7 @@ export default function WeddingLandingPage() {
               onSubmit={handleSubmit}
               ref={formRef}
             >
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-1 gap-6">
                 <div>
                   <label
                     htmlFor="name"

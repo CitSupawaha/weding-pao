@@ -458,17 +458,17 @@ export default function WeddingLandingPage() {
                 GROOM'S PARENTS
               </h3>
               <p className="text-gray-600 text-center text-xl">
-                นายสมบท โคตรเพชร์ (บิดา)
+                นายสมาน โคตรเพชร์ (บิดา)
               </p>
               <p className="text-gray-600 text-center mb-6 text-xl">
-                นางบุลภา โคตรเพชร์ (มารดา)
+                นางมลฑา โคตรเพชร์ (มารดา)
               </p>
               <h3 className="font-serif  mb-4 text-gray-800 text-center text-md">
                 REQUESR THE HONOR OF YOUR PRESENCE TO CELEBRATE THE MARRIAGE OF
               </h3>
               <p className="text-gray-600 text-center text-xl">
                 มีความยินดีขอเรียนเชิญท่านเพื่อเป็นเกียรติในงานเลี้ยงฉลองมงคลสมรส
-                ระหว่าง นางสาวเพียงอัมพร ปิ่นทอง (มาร์ช) และ นายกวินวีร์
+                ระหว่าง นางสาวเพียงอัมพร ปิ่นทอง (มาร์ช) และ นายกวินวัชร์
                 โคตรเพชร์ (เปา)
               </p>
             </motion.div>

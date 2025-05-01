@@ -138,6 +138,7 @@ export default function WeddingLandingPage() {
   
     await fetch('https://script.google.com/macros/s/AKfycbw40W-s1vMvyhhgv_RuGv40mcdS2f1kxmmWx6pvxcHOpEPMnIbzARtZX81_6Ihg2Yq8/exec', {
       method: 'POST',
+      mode:"no-cors",
       body: JSON.stringify({ name, message }),
       headers: {
         'Content-Type': 'application/json',

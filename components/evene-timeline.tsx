@@ -10,9 +10,19 @@ export function EventTimeline() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center text-4xl md:text-5xl font-serif text-rose-400 mb-16"
+        className="text-center text-4xl md:text-5xl font-serif text-rose-400 mb-10"
       >
         WEDDING TIMELINE
+      </motion.h2>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center text-md md:text-5xl font-eng text-black mb-4"
+      >
+
+20 MAY 2025 
       </motion.h2>
 
       <div className="relative">
@@ -42,15 +52,6 @@ export function EventTimeline() {
                 width={30}
                 height={30}
               />
-              {/* <svg
-                className="w-10 h-10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              >
-                <path d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.4 2.667 8.333 8 11.8.533.267 1.2.267 1.733 0C15.333 18.333 20 14.4 20 10zm-10 4c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
-              </svg> */}
             </div>
           </motion.div>
 
@@ -70,7 +71,7 @@ export function EventTimeline() {
               />
             </div>
             <div className="absolute left-1/2 w-3 h-3 bg-white border-2 border-gray-400 rounded-full transform -translate-x-1/2"></div>
-            <div className="w-1/2 pl-10">
+            <div className="w-1/2 pl-8">
               <p className="text-md font-eng text-gray-800">08:29 AM</p>
               <p className="uppercase tracking-wider text-xl text-gray-600">
                 พิธีแห่ขันหมาก

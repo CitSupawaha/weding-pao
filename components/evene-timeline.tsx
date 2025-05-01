@@ -21,8 +21,7 @@ export function EventTimeline() {
         transition={{ duration: 0.6 }}
         className="text-center text-md md:text-5xl font-eng text-black mb-4"
       >
-
-20 MAY 2025 
+        25 MAY 2025
       </motion.h2>
 
       <div className="relative">
@@ -94,7 +93,7 @@ export function EventTimeline() {
             </div>
             <div className="absolute left-1/2 w-3 h-3 bg-white border-2 border-gray-400 rounded-full transform -translate-x-1/2"></div>
             <div className="w-1/2 pl-8">
-            <Image
+              <Image
                 src="/timeline_6.svg"
                 alt="Timeline"
                 width={30}
@@ -111,7 +110,7 @@ export function EventTimeline() {
             className="flex items-center"
           >
             <div className="w-1/2 pr-8 flex justify-end">
-            <Image
+              <Image
                 src="/timeline_4.svg"
                 alt="Timeline"
                 width={30}

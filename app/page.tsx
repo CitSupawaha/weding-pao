@@ -2,12 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
-  Calendar,
-  Heart,
-  MapPin,
-  Gift,
   PauseCircle,
   PlayCircle,
 } from "lucide-react";
@@ -124,13 +119,34 @@ export default function WeddingLandingPage() {
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
       });
+
     };
 
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
 
-    return () => clearInterval(interval);
+    return () => {clearInterval(interval)};
+
+    
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    const name = (document.getElementById('name') as HTMLInputElement).value;
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+  
+    await fetch('https://script.google.com/macros/s/AKfycbw40W-s1vMvyhhgv_RuGv40mcdS2f1kxmmWx6pvxcHOpEPMnIbzARtZX81_6Ihg2Yq8/exec', {
+      method: 'POST',
+      body: JSON.stringify({ name, message }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    alert('ส่งคำอวยพรเรียบร้อยแล้ว ขอบคุณมากครับ 💖');
+  };
+  
 
   // Animation variants
   const fadeIn = {
@@ -165,10 +181,16 @@ export default function WeddingLandingPage() {
       <SparkleHearts />
 
       {/* Audio Element */}
-      <audio ref={audioRef} loop preload="auto">
-        <source src="/rak-puk-anchalee.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+      {/* <div className="">
+        <iframe
+          width="100"
+          height="100"
+          src="https://www.youtube.com/embed/9IgndnSZ8HQ?autoplay=1&loop=1&playlist=9IgndnSZ8HQ"
+          title="Wedding Music"
+          frameBorder="0"
+          allow="autoplay"
+        ></iframe>
+      </div> */}
 
       {/* Music Control Button */}
       <button
@@ -178,13 +200,14 @@ export default function WeddingLandingPage() {
         disabled={!audioReady}
       >
         {isPlaying ? (
-          <PauseCircle className="h-8 w-8 text-rose-600" />
+          <PauseCircle className="h-8 w-8 text-rose-300" />
         ) : (
           <div className="relative">
-            <PlayCircle className="h-8 w-8 text-rose-600" />
+            <PlayCircle className="h-8 w-8 text-rose-300" />
+            
             <motion.div
               animate={heartbeat}
-              className="absolute inset-0 bg-rose-200 rounded-full -z-10"
+              className="absolute inset-0 bg-rose-100 rounded-full -z-10"
               style={{ opacity: 0.5 }}
             ></motion.div>
           </div>
@@ -327,7 +350,7 @@ export default function WeddingLandingPage() {
           >
             <motion.h2
               variants={fadeIn}
-              className="font-serif  text-2xl md:text-4xl mb-12 text-rose-400"
+              className="font-serif  text-4xl md:text-4xl mb-12 text-rose-400"
             >
               TIME IS TICKING
             </motion.h2>
@@ -412,7 +435,7 @@ export default function WeddingLandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={storyInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
-            className="font-serif text-2xl md:text-4xl mb-12 text-center text-rose-400"
+            className="font-serif text-4xl md:text-4xl mb-12 text-center text-rose-400"
           >
             ON BEHALF OF
           </motion.h2>
@@ -444,22 +467,22 @@ export default function WeddingLandingPage() {
                 BRIDE'S PARENTS
               </h3>
               <p className="text-gray-600 text-center text-xl">
-                พ.ต.อ.อาญ ปิ่นทอง (พ่อ)
+                พ.ต.อ.อาญ ปิ่นทอง (บิดา)
               </p>
               <p className="text-gray-600 text-center text-xl">
-                นางประนาถรา ปิ่นทอง (แม่)
+                นางประนารถ ปิ่นทอง (มารดา)
               </p>
-              <h3 className="font-serif text-2xl mb-4 text-gray-800 text-center">
+              <h3 className="font-serif text-4xl mb-4 text-gray-800 text-center">
                 &
               </h3>
               <h3 className="font-serif  mb-4 text-gray-800 text-center text-md mb-6">
                 GROOM'S PARENTS
               </h3>
               <p className="text-gray-600 text-center text-xl">
-                นายสมบท โคตรเพชร (พ่อ)
+                นายสมบท โคตรเพชร (บิดา)
               </p>
               <p className="text-gray-600 text-center mb-6 text-xl">
-                นางบุลภา โคตรเพชร (แม่)
+                นางบุลภา โคตรเพชร (มารดา)
               </p>
               <h3 className="font-serif  mb-4 text-gray-800 text-center text-md">
                 REQUESR THE HONOR OF YOUR PRESENCE TO CELEBRATE THE MARRIAGE OF
@@ -587,6 +610,50 @@ export default function WeddingLandingPage() {
           </div>
         </div>
       </section>
+      <section className="py-10 bg-rose-100/20">
+        <div className="container">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center text-4xl md:text-5xl font-serif text-rose-400 mt-12 mb-6"
+          >
+            LOCATION
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            whileHover={{ y: -10, transition: { duration: 0.2 } }}
+            className=" rounded-lg text-center mt-6"
+          >
+            {/* <div className="inline-flex items-center justify-center w-16 h-16  rounded-full">
+          <MapPin className="h-8 w-8 text-rose-400" />
+        </div> */}
+
+            {/* <h3 className="font-sans text-2xl  text-gray-800">สถานที่</h3> */}
+            <p className="text-gray-600 text-xl">
+              หอประชุมโรงเรียนสามชุกรัตนโภคาราม
+            </p>
+            <p className="text-gray-600 text-xl mb-6">
+              ต.สามชุก อ.สามชุก จ.สุพรรณบุรี
+            </p>
+
+            {/* Google Maps Embed */}
+            <div className="w-full h-[400px]  overflow-hidden shadow  ">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.3336287480047!2d100.09106140000002!3d14.750224200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2263ab4bcded3%3A0x6f4925e16baed9f8!2z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4Liq4Liy4Lih4LiK4Li44LiB4Lij4Lix4LiV4LiZ4LmC4Lig4LiE4Liy4Lij4Liy4Lih!5e0!3m2!1sth!2sth!4v1745997599102!5m2!1sth!2sth"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Gallery Section - Carousel */}
       <section id="gallery" ref={galleryRef} className="py-20 bg-[#faf7f5]">
@@ -597,7 +664,7 @@ export default function WeddingLandingPage() {
               galleryInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.6 }}
-            className="font-serif text-3xl md:text-4xl mb-12 text-center text-rose-300"
+            className="font-serif text-4xl  mb-12 text-center text-rose-300"
           >
             WE HOPE TO SEE YOU ON OUR SPECIAL DAY
           </motion.h2>
@@ -613,15 +680,15 @@ export default function WeddingLandingPage() {
             initial={{ opacity: 0, y: 50 }}
             animate={rsvpInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl mx-auto bg-[#faf7f5] p-8 md:p-12 rounded-lg shadow-lg"
+            className="max-w-2xl mx-auto p-8"
           >
             <motion.h2
               initial={{ opacity: 0 }}
               animate={rsvpInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-sans text-3xl md:text-4xl mb-8 text-center text-gray-800"
+              className="font-serif  text-4xl md:text-4xl mb-4 text-center text-rose-300"
             >
-              ตอบรับเข้าร่วมงาน
+              MEMORABLE WEDDING NOTES
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -629,96 +696,32 @@ export default function WeddingLandingPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center text-gray-600 mb-8"
             >
-              กรุณาตอบรับการเข้าร่วมงานภายในวันที่ 25 เมษายน 2568
+             ร่วมอวยพร และฝากข้อความถึงเรา
             </motion.p>
             <motion.form
               initial={{ opacity: 0 }}
               animate={rsvpInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-6"
+              onSubmit={handleSubmit}
             >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label
-                    htmlFor="firstName"
+                    htmlFor="name"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    ชื่อ
+                    Name
                   </label>
                   <input
                     type="text"
-                    id="firstName"
+                    id="name"
+                    placeholder="ชื่อ - นามสกุล หรือ ชื่อเล่น"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    นามสกุล
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  อีเมล
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  ท่านจะเข้าร่วมงานหรือไม่
-                </label>
-                <div className="flex gap-4">
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      name="attending"
-                      className="h-4 w-4 text-rose-600 focus:ring-rose-500"
-                    />
-                    <span className="ml-2 text-gray-700">ยินดีเข้าร่วม</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      name="attending"
-                      className="h-4 w-4 text-rose-600 focus:ring-rose-500"
-                    />
-                    <span className="ml-2 text-gray-700">
-                      ขอปฏิเสธด้วยความเสียใจ
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="guests"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  จำนวนผู้ร่วมงาน
-                </label>
-                <select
-                  id="guests"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
+         
+               
               </div>
               <div>
                 <label
@@ -734,7 +737,7 @@ export default function WeddingLandingPage() {
                 ></textarea>
               </div>
               <motion.div whileHover={{ scale: 1.03 }} className="text-center">
-                <Button className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-2 text-lg">
+                <Button className="bg-rose-300 hover:bg-rose-300 text-white px-8 py-2 text-lg w-full">
                   ส่งคำตอบ
                 </Button>
               </motion.div>
@@ -752,7 +755,7 @@ export default function WeddingLandingPage() {
               opacity: 1,
               transition: { duration: 1, delay: 1.6 },
             }}
-            className="text-xl md:text-xl font-serif mb-8 flex items-center justify-center text-gray-100"
+            className="text-xl md:text-xl font-serif mb-2 flex items-center justify-center text-gray-100"
           >
             P A O <FaHeart className="mx-2 text-rose-100" /> M A R C H .
           </motion.div>
@@ -760,7 +763,7 @@ export default function WeddingLandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
+            className="mb-2"
           >
             25 พฤษภาคม 2568 • สุพรรณบุรี
           </motion.p>

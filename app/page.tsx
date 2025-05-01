@@ -446,7 +446,7 @@ export default function WeddingLandingPage() {
                 BRIDE'S PARENTS
               </h3>
               <p className="text-gray-600 text-center text-xl">
-                พ.ต.อ.อาญ ปิ่นทอง (บิดา)
+                พ.ต.อ.อาณุ ปิ่นทอง (บิดา)
               </p>
               <p className="text-gray-600 text-center text-xl">
                 นางประนารถ ปิ่นทอง (มารดา)

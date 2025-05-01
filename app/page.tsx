@@ -2,10 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import {
-  PauseCircle,
-  PlayCircle,
-} from "lucide-react";
+import { PauseCircle, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -18,8 +15,10 @@ import { EventTimeline } from "@/components/evene-timeline";
 import PreWeddingGrid from "@/components/grid-images";
 
 export default function WeddingLandingPage() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioReady, setAudioReady] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -119,35 +118,39 @@ export default function WeddingLandingPage() {
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
       });
-
     };
 
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
 
-    return () => {clearInterval(interval)};
-
-    
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const message = (document.getElementById('message') as HTMLTextAreaElement).value;
-  
-    await fetch('https://script.google.com/macros/s/AKfycbw40W-s1vMvyhhgv_RuGv40mcdS2f1kxmmWx6pvxcHOpEPMnIbzARtZX81_6Ihg2Yq8/exec', {
-      method: 'POST',
-      mode:"no-cors",
-      body: JSON.stringify({ name, message }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  
-    alert('ส่งคำอวยพรเรียบร้อยแล้ว ขอบคุณมากครับ 💖');
+    setLoading(true);
+
+    const name = (document.getElementById("name") as HTMLInputElement).value;
+    const message = (document.getElementById("message") as HTMLTextAreaElement)
+      .value;
+
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbw40W-s1vMvyhhgv_RuGv40mcdS2f1kxmmWx6pvxcHOpEPMnIbzARtZX81_6Ihg2Yq8/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({ name, message }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    alert("ส่งคำอวยพรเรียบร้อยแล้ว ขอบคุณมากครับ 💖");
+    formRef.current?.reset();
+    setLoading(false);
   };
-  
 
   // Animation variants
   const fadeIn = {
@@ -205,7 +208,7 @@ export default function WeddingLandingPage() {
         ) : (
           <div className="relative">
             <PlayCircle className="h-8 w-8 text-rose-300" />
-            
+
             <motion.div
               animate={heartbeat}
               className="absolute inset-0 bg-rose-100 rounded-full -z-10"
@@ -697,7 +700,7 @@ export default function WeddingLandingPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center text-gray-600 mb-8"
             >
-             ร่วมอวยพร และฝากข้อความถึงเรา
+              ร่วมอวยพร และฝากข้อความถึงเรา
             </motion.p>
             <motion.form
               initial={{ opacity: 0 }}
@@ -705,6 +708,7 @@ export default function WeddingLandingPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="space-y-6"
               onSubmit={handleSubmit}
+              ref={formRef}
             >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -721,8 +725,6 @@ export default function WeddingLandingPage() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
-         
-               
               </div>
               <div>
                 <label
@@ -738,8 +740,12 @@ export default function WeddingLandingPage() {
                 ></textarea>
               </div>
               <motion.div whileHover={{ scale: 1.03 }} className="text-center">
-                <Button className="bg-rose-300 hover:bg-rose-300 text-white px-8 py-2 text-lg w-full">
-                  ส่งคำตอบ
+                <Button
+                  className="bg-rose-300 hover:bg-rose-300 text-white px-8 py-2 text-lg w-full"
+                  disabled={loading}
+                  type="submit"
+                >
+                  {loading ? "กำลังส่ง..." : "ส่งคำตอบ"}
                 </Button>
               </motion.div>
             </motion.form>
